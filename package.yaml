@@ -1,0 +1,50 @@
+name:                triangle-opengl
+version:             0.1.0.0
+github:              "betlgtu/triangle-opengl.git"
+license:             BSD3
+author:              "betlgtu"
+maintainer:          "betlgtu@gmail.com"
+copyright:           "2019 betlgtu"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/betlgtu/triangle-opengl.git#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- GLUT >= 2.7
+- bytestring >= 0.10
+
+library:
+  source-dirs: src
+
+executables:
+  triangle-opengl-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - triangle-opengl
+
+tests:
+  triangle-opengl-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - triangle-opengl
